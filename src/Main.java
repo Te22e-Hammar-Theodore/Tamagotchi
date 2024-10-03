@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Main {
 
+    boolean isPlaying = true;
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Tamagotchi tama = new Tamagotchi("");
@@ -26,13 +28,13 @@ public class Main {
                 tama.feed();
                 break;
             case 2:
-tama.speak();
+                tama.speak();
                 break;
             case 3:
-tama.teach();
+                tama.teach();
                 break;
             case 4:
-tama.printStats();
+                tama.printStats();
                 break;
             default:
                 System.out.println("Ogiltigt val, försök igen.");
