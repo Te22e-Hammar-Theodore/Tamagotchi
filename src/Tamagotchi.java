@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Tamagotchi {
 
@@ -7,8 +8,8 @@ public class Tamagotchi {
     private int hunger = 0;
     private int bordedom = 0;
     private boolean isAlive;
-    private ArrayList<String> words = new ArrayList<>();
-    private Random generator = new Random();  // Initiera generator
+    private final ArrayList<String> words = new ArrayList<>();
+    private final Random generator = new Random();  // Initiera generator
 
     public Tamagotchi(String incomingName) {
         isAlive = true;
@@ -16,7 +17,7 @@ public class Tamagotchi {
     }
 
     public void feed() {
-        System.out.println(name + " äter och blev mindre hungrig.");
+        System.out.println(name + " åt och blev mindre hungrig.");
         hunger -= 2;
         if (hunger < 0) {
             hunger = 0;
