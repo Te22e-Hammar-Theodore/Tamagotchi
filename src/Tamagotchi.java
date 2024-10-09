@@ -16,7 +16,9 @@ public class Tamagotchi {
     public Tamagotchi(String incomingName) {
         isAlive = true;
         words.add("Hallon!");
+
     }
+
 
     public void feed() {
         if (money >= 20) {
