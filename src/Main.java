@@ -1,26 +1,30 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import static java.time.Clock.tick;
 
 public class Main {
 
-    boolean isPlaying = true;
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         Tamagotchi tama = new Tamagotchi("");
         System.out.println("Välkommen till din Tamagotchi");
-        System.out.println("Vad ska din Tamagotchi heta?");
         System.out.println();
         System.out.println("Vad heter din karaktär?");
         System.out.print(">>> ");
         tama.name = sc.nextLine();
+        System.out.println("Din Tamagotchi heter " + tama.name);
 
         while (tama.getAlive()) {
+            tama.tick();
+            tama.printStats();
             System.out.println();
             System.out.println("Vad vill du göra?");
-            System.out.println("1. Mata " + tama.name);
-            System.out.println("2. Prata med " + tama.name);
-            System.out.println("3. Lära " + tama.name + " ett nytt ord");
-            System.out.println("4. Visa " + tama.name + "s stats");
+            System.out.println("1. (20¥) Mata " + tama.name);
+            System.out.println("2. (30¥) Prata med " + tama.name);
+            System.out.println("3. (40¥) Lära " + tama.name + " ett nytt ord");
+            System.out.println("4. Tjäna pengar");
             System.out.println("5. Avsluta");
             int menuChoise = sc.nextInt();
             sc.nextLine();
@@ -38,7 +42,7 @@ public class Main {
                     tama.teach(word);
                     break;
                 case 4:
-                    tama.printStats();
+                    tama.gainMoney(sc);
                     break;
                 case 5:
                     System.out.println("Tack för denna gång!");
